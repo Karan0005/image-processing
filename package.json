@@ -1,0 +1,31 @@
+{
+  "name": "image",
+  "version": "1.0.0",
+  "description": "Image Processing, Compression, 200X200, 50X50, Camera Capture",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaywish/image_processing.git"
+  },
+  "keywords": [
+    "Image",
+    "Processing",
+    "Camera",
+    "Capture"
+  ],
+  "author": "Karan Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaywish/image_processing/issues"
+  },
+  "homepage": "https://github.com/kaywish/image_processing#readme",
+  "dependencies": {
+    "aws-sdk": "^2.50.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}

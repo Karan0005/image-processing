@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="image">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Image, Processing, Small Sample, Large Sample, Camera Capture">
+        <meta name="description" content="Complete Image Processing System Developed & Maintained by Karan">
+        <meta http-equiv="X-UA-Compatible" content="IE-egde">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>Image Processing</title>
+    </head>
+    <body ng-controller="main as vm">
+        <div id="container-box">
+            <div id="project" class="clearfix">
+                <div id="left-block">
+                    <div id="title">
+                        Processing Area
+                    </div>
+                    <div id="display-area">
+                        <img src="./images/user.png" id="select-img">
+                        <center id="crop-img">
+                            <img-crop image="vm.select" result-image="vm.cropped" area-type="square" result-image-quality="1.0">
+                            </img-crop>
+                        </center>
+                        <video id="video-camera" ng-canplay="vm.done()">
+                            Video stream not available.
+                        </video>
+                    </div>
+                    <div class="btn-group">
+                        <label class="btn btn-default">
+                            Browse Image
+                            <input type="file" accept="image/*" ng-fileread="vm.process()" ng-click="vm.mode='default'" id="browsed-image">
+                        </label>
+                        <button class="btn btn-default" ng-click="vm.startCamera()">
+                            Camera
+                        </button>
+                        <button class="btn btn-default" ng-click="vm.snapShot()">
+                            Capture
+                        </button>
+                        <button class="btn btn-default" ng-click="vm.upload()">
+                            Upload
+                        </button>
+                        <button class="btn btn-default" ng-click="vm.reset()">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+                <div id="right-block">
+                    <div id="standard-output">
+                        <div>Standard Output</div>
+                        <img ng-src="{{vm.cropped}}" onload="compress()" id="picture">
+                    </div>
+                    <div id="compressed-output">
+                        <div>Compressed Output</div>
+                        <img id="nano-picture">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="./js/ng-img-crop/compile/unminified/ng-img-crop.js"></script>
+    <script src="./js/index.js"></script>
+</html>
